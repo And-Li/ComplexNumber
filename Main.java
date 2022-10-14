@@ -24,16 +24,19 @@ public class Main {
 
         @Override
         public int hashCode() {
-            return Objects.hash();
+            int result = (int) (re + im);
+            result = (int) (result * 17 + Double.hashCode(re));
+            result = (int) (result * 17 + Double.hashCode(im));
+            return (result);
         }
 
     }
 
     public static void main(String[] args) {
-        ComplexNumber a = new ComplexNumber(1, 1);
+        ComplexNumber a = new ComplexNumber(491.0, 890.0);
         System.out.println(a.re);
         System.out.println(a.im);
-        ComplexNumber b = new ComplexNumber(1, 1);
+        ComplexNumber b = new ComplexNumber(890.0, 491.0);
         System.out.println(a.equals(b));
         System.out.println(Double.compare(a.re, b.re));
         System.out.println(a.hashCode());
